@@ -22,7 +22,51 @@ class Adapter( val planet:List<GeneralData>): RecyclerView.Adapter<Adapter.myVie
     }
 
     override fun onBindViewHolder(holder: myViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        var dummyImage: Int? = null
+
+        holder.title.text = planet[position].title
+        holder.galaxy.text = planet[position].galaxy
+        holder.distance.text = planet[position].distance+ " m km"
+        holder.gravity.text = planet[position].gravity+ " m/ss"
+
+        when(planet[position].title!!.toLowerCase()){
+            "mars"->{
+                dummyImage = R.drawable.ic_mars
+            }
+            "neptune"->{
+                dummyImage = R.drawable.ic_neptune
+            }
+            "earth"->{
+                dummyImage = R.drawable.ic_earth
+            }
+            "moon"->{
+                dummyImage = R.drawable.ic_moon
+            }
+            "venus"->{
+                dummyImage = R.drawable.ic_venus
+            }
+            "jupiter"->{
+                dummyImage = R.drawable.ic_jupiter
+            }
+            "saturn"->{
+                dummyImage = R.drawable.ic_saturn
+            }
+            "uranus"->{
+                dummyImage = R.drawable.ic_uranus
+            }
+
+            "mercury"->{
+                dummyImage = R.drawable.ic_mercury
+            }
+
+            "sun"->{
+                dummyImage = R.drawable.ic_sun
+            }
+
+
+        }
+
+
     }
 
     override fun getItemCount(): Int {
