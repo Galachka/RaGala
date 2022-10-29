@@ -65,6 +65,7 @@ class Adapter( val planet:List<GeneralData>): RecyclerView.Adapter<Adapter.myVie
 
 
         }
+        holder.planetimg.setImageResource(dummyImage!!)
 
 
     }
