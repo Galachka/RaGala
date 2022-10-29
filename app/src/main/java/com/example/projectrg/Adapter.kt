@@ -1,5 +1,6 @@
 package com.example.projectrg
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,12 +19,20 @@ class Adapter( val planet:List<GeneralData>): RecyclerView.Adapter<Adapter.myVie
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): myViewHolder {
         var itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.view, parent, false)
+
+
         return myViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: myViewHolder, position: Int) {
         var dummyImage: Int? = null
 
+        holder.itemView.setOnClickListener{
+            val intent = Intent(holder.itemView.context,Details::class.java)
+            intent.putExtra("planet", planet[position])
+            intent.putExtra("planetImage", dummyImage)
+            holder.itemView.context.startActivity(intent)
+        }
         holder.title.text = planet[position].title
         holder.galaxy.text = planet[position].galaxy
         holder.distance.text = planet[position].distance+ " m km"
